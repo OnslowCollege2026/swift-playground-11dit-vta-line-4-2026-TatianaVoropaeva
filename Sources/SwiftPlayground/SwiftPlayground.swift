@@ -33,7 +33,7 @@ struct SwiftPlayground {
                     print("\(birds[birdIndex - 1]) added.")
                     birdsSeen[birdIndex - 1] += 1
                 } else {
-                    print("Enter intergers only, between 1 and \(birds.count).")
+                    print("Enter intergers between 1 and \(birds.count).")
                 }
             } else if birdOrInsect == "insect" {
                 insects.enumerated().forEach { index, insect in
@@ -48,7 +48,7 @@ struct SwiftPlayground {
                     print("\(insects[insectIndex - 1]) added.")
                     insectsSeen[insectIndex - 1] += 1
                 } else {
-                    print("Enter intergers only, between 1 and \(insects.count).")
+                    print("Enter intergers between 1 and \(insects.count).")
                 }
             } else if birdOrInsect == "quit" {
                 isRunning = false
