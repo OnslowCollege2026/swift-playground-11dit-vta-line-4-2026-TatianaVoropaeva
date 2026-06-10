@@ -26,10 +26,10 @@ struct SwiftPlayground {
                 } 
                 /// Adds to a tally of species she has seen.
                 print("Enter a number: ")
-                let userInput = readLine()!
+                let birdIndex = Int(readLine()!)!  
 
                 /// Checking if the user input is an Int and is more then 1 but less then the lenght of the array.
-                if let birdIndex = Int(userInput),  birdIndex >= 1, birdIndex <= birds.count {
+                if birdIndex >= 1, birdIndex <= birds.count {
                     print("\(birds[birdIndex - 1]) added.")
                     birdsSeen[birdIndex - 1] += 1
                 } else {
