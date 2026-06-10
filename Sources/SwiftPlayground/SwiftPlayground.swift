@@ -16,7 +16,7 @@ struct SwiftPlayground {
 
         /// Asks her if she saw a bird or insect.   
         while isRunning {
-            print("Did you see a bird or insect/ press Enter to quit: ")
+            print("Did you see a bird or insect/ Quit to quit: ")
             let birdOrInsect: String = readLine()!.lowercased()
 
             /// Asks her to select the bird/insect from a list of known species.
@@ -39,8 +39,10 @@ struct SwiftPlayground {
                 let insectIndex: Int = Int(readLine()!)!
                 print("\(insects[insectIndex - 1]) added.")
                 insectsSeen[insectIndex - 1] += 1
-            } else {
+            } else if birdOrInsect == "quit" {
                 isRunning = false
+            } else {
+                print("Incorrect input. Enter bird, insect or quit")
             }
         }
         /// Counts the species she has seen and shows her the totals.
