@@ -27,10 +27,10 @@ struct SwiftPlayground {
                 /// Adds to a tally of species she has seen.
                 print("Enter a number: ")
                 let userInput = readLine()!
-                if let birdIndex: Int = Int(userInput)! && birdIndex > 0 {
+                let birdIndex: Int = Int(userInput)!
                 print("\(birds[birdIndex - 1]) added.")
                 birdsSeen[birdIndex - 1] += 1
-                }
+
             } else if birdOrInsect == "insect" {
                 insects.enumerated().forEach { index, insect in
                     print("\(index + 1). \(insect)")
