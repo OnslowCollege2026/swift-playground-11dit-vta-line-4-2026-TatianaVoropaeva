@@ -39,9 +39,13 @@ struct SwiftPlayground {
                 }
                 /// Adds to a tally of species she has seen.
                 print("Enter a number: ")
-                let insectIndex: Int = Int(readLine()!)!
-                print("\(insects[insectIndex - 1]) added.")
-                insectsSeen[insectIndex - 1] += 1
+                let userInput = readLine()!
+                if let insectIndex = Int(userInput), insectIndex >= 1, insectIndex <= 8 {    
+                    print("\(insects[insectIndex - 1]) added.")
+                    insectsSeen[insectIndex - 1] += 1
+                } else {
+                    print("Enter intergers only, between 1 and 8.")
+                }
             } else if birdOrInsect == "quit" {
                 isRunning = false
             } else {
