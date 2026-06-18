@@ -23,11 +23,13 @@ struct SwiftPlayground {
             // Printing days of the week and collecting number of hours slept.
             for day in daysOfWeek {
                 print("How many hours did you sleep on \(day)?")
-                let hoursSlept: Int = Int(readLine()!)!
+                var hoursSlept: Int = Int(readLine()!)!
                 if hoursSlept >= 0, hoursSlept <= 24 {
                     totalHours += hoursSlept
                 } else {
                     print("Only enter the number between 0 and 24.")
+                    print("How many hours did you sleep on \(day)?")
+                    hoursSlept = Int(readLine()!)!
                 }
             }
 
