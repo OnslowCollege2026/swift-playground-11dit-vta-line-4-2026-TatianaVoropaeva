@@ -4,69 +4,54 @@
 @main
 struct SwiftPlayground {
     static func main() {
-        // Prints welcome message.
-        print("Welcome to Zealandia Tracker.")
+        // Prints the welcome statement.
+        print("Welcome to Sleep Tracker.")
 
-        // Creating constants for the lists of birds and insects. Bool for the while loop. Two lists of integers that will store the number of birds and insects seen.
+        /// Arrasy for all the days of the week.
+        let daysOfWeek: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+        /// Collects total and average hours slept.
+        var totalHours: Int = 0
+        var averageHours: Int = 0
+
+        /// Starts the while loop.
         var isRunning: Bool = true
-        let birds: [String] = ["Tieke", "Kākā", "Takahē", "Hihi", "Kiwi", "Pāteke", "Tūī", "Kererū"]
-        let insects: [String] = ["Giant Wētā", "Tree Wētā", "Cave Wētā", "Putoko", "Pūngāwerewere", "Ngaokeoke", "Waemano", "Kapowai"]
-        var birdsSeen: [Int] = [0, 0, 0, 0, 0, 0, 0, 0]
-        var insectsSeen: [Int] = [0, 0, 0, 0, 0, 0, 0, 0]
 
-        /// Asks her if she saw a bird or insect.   
         while isRunning {
-            print("Did you see a bird or insect/ Quit to quit: ")
-            let birdOrInsect: String = readLine()!.lowercased()
+            print("Let's start be recording your sleep.")
 
-            /// Asks her to select the bird/insect from a list of known species.
-            if birdOrInsect == "bird" {
-                birds.enumerated().forEach { index, bird in
-                    print("\(index + 1). \(bird)")
-                } 
-                /// Adds to a tally of species she has seen.
-                print("Enter a number: ")
-                let birdIndex = Int(readLine()!)!  
-
-                /// Checking if the user input is an Int and is more then 1 but less then the lenght of the array.
-                if birdIndex >= 1, birdIndex <= birds.count {
-                    print("\(birds[birdIndex - 1]) added.")
-                    birdsSeen[birdIndex - 1] += 1
-                } else {
-                    print("Enter intergers between 1 and \(birds.count).")
-                }
-            } else if birdOrInsect == "insect" {
-                insects.enumerated().forEach { index, insect in
-                    print("\(index + 1). \(insect)")
-                }
-                /// Adds to a tally of species she has seen.
-                print("Enter a number: ")
-                let insectIndex = Int(readLine()!)!
-
-                /// Checking if the user input is an Int and is more then 1 but less then the lenght of the array.
-                if insectIndex >= 1, insectIndex <= insects.count {    
-                    print("\(insects[insectIndex - 1]) added.")
-                    insectsSeen[insectIndex - 1] += 1
-                } else {
-                    print("Enter intergers between 1 and \(insects.count).")
-                }
-            } else if birdOrInsect == "quit" {
-                isRunning = false
-            } else {
-                print("Incorrect input. Enter bird, insect or quit")
+            // Printing days of the week and collecting number of hours slept.
+            for day in daysOfWeek {
+                print("How many hours did you sleep on \(day)?")
+                let hoursSlept: Int = Int(readLine()!)!
+                totalHours += hoursSlept
             }
-        }
-        /// Counts the species she has seen and shows her the totals.
-        print("Today you have seen: ")
-        for (bird, birdSeen) in zip(birds, birdsSeen ) {
-            if birdSeen > 0 {
-                print("\(birdSeen): \(bird)")
+
+            /// Calculates average hours.
+            averageHours = totalHours / 7
+
+            // Prints the total and average hours.
+            print("You got total of \(totalHours) hours of sleep this week, which averages to \(averageHours) per day.")
+
+            // Checks the average hours and gives sleep rating.
+            if averageHours >= 8 {
+                print("You have met the recommended 8 hours of sleep per night this week.")
+                print("Your sleep rating is: Healthy")
+            } else if averageHours >= 6 {
+                print("You have not met the recommended 8 hours of sleep per night this week.")
+                print("Your sleep rating is: Ok")
+            } else {
+                print("You have not met the recommended 8 hours of sleep per night this week.")
+                print("Your sleep rating is: Poor")
+            }
+
+            // Asking if they want to record another week.
+            print("Would you like to record another week? (Y/N)")
+            let answer = readLine()!
+
+            // Stoping program if N is entered.
+            if answer == "N" {
+                isRunning = false
+            }
     }
-}
-        for (insect, insectSeen) in zip(insects, insectsSeen) {
-            if insectSeen > 0 {
-                print("\(insectSeen): \(insect)")
-    }
-}
-    }
-}
+}}
