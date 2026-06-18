@@ -17,14 +17,18 @@ struct SwiftPlayground {
              /// Collects total and average hours slept.
             var totalHours: Int = 0
             var averageHours: Int = 0
-            
+
             print("Let's start be recording your sleep.")
 
             // Printing days of the week and collecting number of hours slept.
             for day in daysOfWeek {
                 print("How many hours did you sleep on \(day)?")
                 let hoursSlept: Int = Int(readLine()!)!
-                totalHours += hoursSlept
+                if hoursSlept >= 0, hoursSlept <= 24 {
+                    totalHours += hoursSlept
+                } else {
+                    print("Only enter the number between 0 and 24.")
+                }
             }
 
             /// Calculates average hours.
