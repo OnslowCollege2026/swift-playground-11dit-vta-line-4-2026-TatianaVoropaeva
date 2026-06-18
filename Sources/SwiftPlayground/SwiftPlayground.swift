@@ -10,14 +10,14 @@ struct SwiftPlayground {
         /// Arrasy for all the days of the week.
         let daysOfWeek: [String] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
-        /// Collects total and average hours slept.
-        var totalHours: Int = 0
-        var averageHours: Int = 0
-
         /// Starts the while loop.
         var isRunning: Bool = true
 
         while isRunning {
+             /// Collects total and average hours slept.
+            var totalHours: Int = 0
+            var averageHours: Int = 0
+            
             print("Let's start be recording your sleep.")
 
             // Printing days of the week and collecting number of hours slept.
@@ -47,11 +47,12 @@ struct SwiftPlayground {
 
             // Asking if they want to record another week.
             print("Would you like to record another week? (Y/N)")
-            let answer = readLine()!
+            let answer = readLine()!.lowercased()
 
             // Stoping program if N is entered.
-            if answer == "N" {
+            if answer == "n" {
                 isRunning = false
+                print("Thank you for using sleep tracker")
             }
     }
 }}
